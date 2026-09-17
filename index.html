@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mummy D Party Packs & Events</title>
+<title>Mummy D Kids Essentials</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --coral: #ff6b6b;
@@ -14,7 +14,8 @@
     --yellow: #ffc857;
     --navy: #1d2b4f;
     --cream: #fff8ef;
-    --line: rgba(23,179,163,0.25);
+    --card: #ffffff;
+    --line: #eee0d0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,7 +30,7 @@
 
   h1, h2, h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--navy); }
   a { text-decoration: none; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
   nav {
     position: sticky;
@@ -38,261 +39,304 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 24px;
-    max-width: 1040px;
+    padding: 16px 24px;
+    max-width: 1080px;
     margin: 0 auto;
-    background: rgba(255,248,239,0.85);
+    background: rgba(255,248,239,0.9);
     backdrop-filter: blur(10px);
   }
-  .brand {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-  }
+  .brand { font-family: 'Fredoka', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); }
   .brand span { color: var(--coral); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { color: var(--navy); font-size: 0.88rem; font-weight: 700; opacity: 0.75; }
+  .nav-links a:hover { opacity: 1; }
   .nav-cta {
     background: var(--coral);
     color: #fff;
-    padding: 11px 22px;
+    padding: 10px 20px;
     border-radius: 999px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    transition: transform 0.25s ease, background 0.25s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
   }
   .nav-cta:hover { background: var(--coral-deep); transform: translateY(-2px); }
 
+  @media (max-width: 700px) { .nav-links { display: none; } }
+
   .hero {
     position: relative;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    background:
-      linear-gradient(100deg, rgba(29,43,79,0.88) 30%, rgba(29,43,79,0.4) 100%),
-      url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1600&q=80') center/cover;
+    padding: 64px 24px 56px;
+    background: var(--navy);
     color: var(--cream);
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255,107,107,0.25), transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(23,179,163,0.25), transparent 45%);
   }
   .hero-inner {
-    padding: 60px 24px;
-    max-width: 1040px;
+    position: relative;
+    max-width: 640px;
     margin: 0 auto;
-    width: 100%;
     opacity: 0;
-    transform: translateY(24px);
-    animation: rise 0.9s ease 0.15s forwards;
+    transform: translateY(20px);
+    animation: rise 0.8s ease 0.1s forwards;
   }
   @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-
-  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
-  .mini-badge {
+  .hero .eyebrow {
+    display: inline-block;
     background: rgba(255,200,87,0.15);
     border: 1px solid var(--yellow);
     color: var(--yellow);
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 999px;
     font-size: 0.78rem;
     font-weight: 700;
+    margin-bottom: 18px;
   }
-  .hero h1 {
-    color: var(--cream);
-    font-size: clamp(2.4rem, 6vw, 3.8rem);
-    line-height: 1.08;
-    max-width: 13ch;
-    margin-bottom: 20px;
-  }
+  .hero h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; color: var(--cream); margin-bottom: 14px; }
   .hero h1 em { color: var(--yellow); font-style: normal; }
-  .hero p { max-width: 44ch; font-size: 1.05rem; color: rgba(255,248,239,0.85); margin-bottom: 30px; }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero p { color: rgba(255,248,239,0.8); font-size: 1.02rem; margin-bottom: 26px; }
   .btn-primary {
     background: var(--coral);
     color: #fff;
-    padding: 15px 28px;
+    padding: 14px 30px;
     border-radius: 999px;
     font-weight: 700;
     font-size: 0.95rem;
     display: inline-block;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
-  .btn-ghost {
-    border: 1px solid rgba(255,248,239,0.5);
-    color: var(--cream);
-    padding: 15px 28px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    display: inline-block;
-    transition: border-color 0.25s ease, transform 0.25s ease;
-  }
-  .btn-ghost:hover { border-color: var(--yellow); transform: translateY(-3px); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.3); }
 
   .strip {
     background: var(--turquoise);
     color: #fff;
-    padding: 16px 0;
+    padding: 13px 0;
     text-align: center;
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 700;
     letter-spacing: 0.02em;
   }
 
-  section { padding: 88px 0; }
-  .section-head { max-width: 44ch; margin-bottom: 44px; }
-  .section-head .eyebrow { color: var(--coral); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 10px; }
-  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.3rem); margin-bottom: 10px; }
-  .section-head p { color: #5a6482; font-size: 1rem; }
+  .catalog { padding: 60px 0 20px; }
+  .category { margin-bottom: 54px; scroll-margin-top: 70px; }
+  .category-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px; }
+  .category-head h2 { font-size: 1.4rem; }
+  .category-head .icon { font-size: 1.2rem; margin-right: 8px; }
+  .category-count { color: #8a8478; font-size: 0.85rem; font-weight: 700; }
 
-  .gallery-grid {
+  .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
-  .gallery-item {
-    position: relative;
-    border-radius: 18px;
+  @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .product-card {
+    background: var(--card);
+    border-radius: 14px;
     overflow: hidden;
-    aspect-ratio: 4/5;
-    box-shadow: 0 8px 20px rgba(29,43,79,0.1);
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
-  .gallery-item:hover img { transform: scale(1.08); }
-  .gallery-item-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 16px 14px;
-    background: linear-gradient(0deg, rgba(29,43,79,0.85), transparent);
-    color: #fff;
-    font-size: 0.92rem;
-    font-weight: 700;
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(29,43,79,0.1); }
+  .product-img { width: 100%; aspect-ratio: 1/1; overflow: hidden; background: #f4ede0; }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .product-info { padding: 12px 14px 16px; }
+  .product-info h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 6px; line-height: 1.25; }
+  .price-pill {
+    display: inline-block;
+    background: rgba(255,107,107,0.1);
+    color: var(--coral-deep);
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
   }
+  .price-pill.na { background: rgba(23,179,163,0.1); color: var(--turquoise); }
 
-  @media (max-width: 700px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .packages { background: var(--navy); color: var(--cream); }
-  .packages .section-head h2 { color: var(--cream); }
-  .packages .section-head p { color: rgba(255,248,239,0.7); }
-  .packages .section-head .eyebrow { color: var(--yellow); }
-  .package-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-  .package-card {
-    background: rgba(255,248,239,0.06);
-    border: 1px solid rgba(255,200,87,0.25);
-    border-radius: 16px;
-    padding: 28px 24px;
+  .order {
     text-align: center;
+    padding: 70px 24px;
+    background: var(--navy);
+    color: var(--cream);
+    margin-top: 30px;
   }
-  .package-card .icon { font-size: 1.8rem; margin-bottom: 14px; }
-  .package-card h3 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 8px; }
-  .package-card p { color: rgba(255,248,239,0.75); font-size: 0.92rem; }
-
-  @media (max-width: 700px) {
-    .package-row { grid-template-columns: 1fr; }
-  }
-
-  .order { text-align: center; }
-  .order h2 { margin-bottom: 14px; }
-  .order p { color: #5a6482; max-width: 40ch; margin: 0 auto 28px; }
+  .order .eyebrow { color: var(--yellow); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .order h2 { color: var(--cream); margin-bottom: 12px; }
+  .order p { color: rgba(255,248,239,0.75); max-width: 42ch; margin: 0 auto 26px; }
 
   footer {
     background: var(--navy);
-    color: rgba(255,248,239,0.55);
+    color: rgba(255,248,239,0.5);
     text-align: center;
-    padding: 32px 24px;
-    font-size: 0.85rem;
+    padding: 26px 24px;
+    font-size: 0.82rem;
+    border-top: 1px solid rgba(255,248,239,0.08);
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="brand">Mummy D <span>Party Packs</span></div>
-  <a href="#order" class="nav-cta">Order Now</a>
+  <div class="brand">Mummy D <span>Kids Essentials</span></div>
+  <div class="nav-links">
+    <a href="#school">School</a>
+    <a href="#meals">Mealtime</a>
+    <a href="#toys">Toys</a>
+    <a href="#extras">Extras</a>
+  </div>
+  <a href="#order" class="nav-cta">Shop Now</a>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="badge-row">
-      <span class="mini-badge">One-Stop Party Shop</span>
-      <span class="mini-badge">Affordable for Every Budget</span>
-    </div>
-    <h1>Birthdays made <em>unforgettable.</em></h1>
-    <p>Party packs, souvenirs, and everything your child's celebration needs — all in one place, ready when you are.</p>
-    <div class="hero-actions">
-      <a href="#order" class="btn-primary">Plan Your Party</a>
-      <a href="#packages" class="btn-ghost">See Packages</a>
-    </div>
+    <div class="eyebrow">SCHOOL & EVERYDAY ESSENTIALS</div>
+    <h1>Everything your kid needs, <em>in one place.</em></h1>
+    <p>Watches, lunch boxes, stationery, toys, and more — quality kids' essentials at prices every parent can work with.</p>
+    <a href="#order" class="btn-primary">Shop on WhatsApp</a>
   </div>
 </header>
 
-<div class="strip">🎉 Party Packs · Souvenirs · Gift Items · Birthday Essentials — All Under One Roof</div>
+<div class="strip">🎒 New stock arriving regularly — message Mummy D if you don't see what you're looking for</div>
 
-<section id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">THE VIBE</div>
-      <h2>Celebrations we love to be part of</h2>
-      <p>From first birthdays to big kid parties, every detail is handled with care.</p>
+<main class="catalog wrap">
+
+  <div class="category" id="school">
+    <div class="category-head">
+      <h2><span class="icon">✏️</span>School & Stationery</h2>
+      <span class="category-count">5 items</span>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=500&q=80" alt="Colorful kids birthday party setup">
-        <div class="gallery-item-label">Birthday Setups</div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/books.jpg" alt="Books"></div>
+        <div class="product-info"><h3>Books</h3><span class="price-pill">₦600</span></div>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=500&q=80" alt="Party favor bags and gifts">
-        <div class="gallery-item-label">Party Packs & Favors</div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/coloringpens.jpg" alt="Coloring Pens"></div>
+        <div class="product-info"><h3>Coloring Pens</h3><span class="price-pill">From ₦500</span></div>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=500&q=80" alt="Kids party balloons and decor">
-        <div class="gallery-item-label">Souvenirs & Gifts</div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/mathsets.jpg" alt="Math Sets"></div>
+        <div class="product-info"><h3>Math Sets</h3><span class="price-pill">From ₦800</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/pencilpacksets.jpg" alt="Pencil Pack Sets"></div>
+        <div class="product-info"><h3>Pencil Pack Sets</h3><span class="price-pill">From ₦300</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/pencilset2.jpg" alt="Pencil Set 2"></div>
+        <div class="product-info"><h3>Pencil Set 2</h3><span class="price-pill na">Message for price</span></div>
       </div>
     </div>
   </div>
-</section>
 
-<section id="packages" class="packages">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">WHAT'S INCLUDED</div>
-      <h2>Everything for the big day</h2>
-      <p>Mix and match, or let us put together the full package.</p>
+  <div class="category" id="meals">
+    <div class="category-head">
+      <h2><span class="icon">🍱</span>Mealtime Essentials</h2>
+      <span class="category-count">7 items</span>
     </div>
-    <div class="package-row">
-      <div class="package-card">
-        <div class="icon">🎁</div>
-        <h3>Party Packs</h3>
-        <p>Ready-made goodie bags and souvenirs guests will love taking home.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/lunchbox.jpg" alt="Lunch Box"></div>
+        <div class="product-info"><h3>Lunch Box</h3><span class="price-pill">From ₦7,500</span></div>
       </div>
-      <div class="package-card">
-        <div class="icon">🎈</div>
-        <h3>Decor Items</h3>
-        <p>Balloons, banners, and table setups to bring the theme to life.</p>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/lunchbags.jpg" alt="Lunch Bags"></div>
+        <div class="product-info"><h3>Lunch Bags</h3><span class="price-pill na">Message for price</span></div>
       </div>
-      <div class="package-card">
-        <div class="icon">🧸</div>
-        <h3>Gifts & Toys</h3>
-        <p>A wide selection of age-appropriate toys and gift items for every budget.</p>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/foodflask.jpg" alt="Food Flask"></div>
+        <div class="product-info"><h3>Food Flask</h3><span class="price-pill na">Message for price</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/cutlery.jpg" alt="Cutlery Set"></div>
+        <div class="product-info"><h3>Cutlery Set</h3><span class="price-pill">From ₦500</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/plates.jpg" alt="Plates"></div>
+        <div class="product-info"><h3>Plates</h3><span class="price-pill">From ₦400</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/cups.jpg" alt="Cups"></div>
+        <div class="product-info"><h3>Cups</h3><span class="price-pill">From ₦500</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/waterbottle.jpg" alt="Water Bottle"></div>
+        <div class="product-info"><h3>Water Bottle</h3><span class="price-pill">From ₦2,500</span></div>
       </div>
     </div>
   </div>
-</section>
+
+  <div class="category" id="toys">
+    <div class="category-head">
+      <h2><span class="icon">🧸</span>Toys & Fun</h2>
+      <span class="category-count">4 items</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/toys.jpg" alt="Toys"></div>
+        <div class="product-info"><h3>Toys</h3><span class="price-pill na">Message for price</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/bigtoys.jpg" alt="Big Toys"></div>
+        <div class="product-info"><h3>Big Toys</h3><span class="price-pill">From ₦4,000</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/piggybanks.jpg" alt="Piggy Banks"></div>
+        <div class="product-info"><h3>Piggy Banks</h3><span class="price-pill">From ₦1,000</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/puzzles.jpg" alt="Puzzles"></div>
+        <div class="product-info"><h3>Puzzles</h3><span class="price-pill">From ₦1,000</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="extras">
+    <div class="category-head">
+      <h2><span class="icon">⌚</span>Accessories & Extras</h2>
+      <span class="category-count">4 items</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/watches.jpg" alt="Wrist Watches"></div>
+        <div class="product-info"><h3>Wrist Watches</h3><span class="price-pill">From ₦1,500</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/headset.jpg" alt="Head Set"></div>
+        <div class="product-info"><h3>Head Set</h3><span class="price-pill na">Message for price</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/partybags.jpg" alt="Party Bags"></div>
+        <div class="product-info"><h3>Party Bags (Nap Sac)</h3><span class="price-pill">₦500</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="mummyd-images/costumes2.jpg" alt="Costumes"></div>
+        <div class="product-info"><h3>Costumes</h3><span class="price-pill na">Message for price</span></div>
+      </div>
+    </div>
+  </div>
+
+</main>
 
 <section id="order" class="order">
-  <div class="wrap">
-    <div class="eyebrow" style="color:var(--coral); font-weight:700; font-size:0.8rem; letter-spacing:0.04em; margin-bottom:10px;">GET STARTED</div>
-    <h2>Ready to plan the party?</h2>
-    <p>Message us the date, age, and theme — we'll help you put together the perfect package.</p>
-    <a href="https://wa.me/2348033992076" class="btn-primary" style="background:var(--turquoise); color:#fff;">Chat on WhatsApp</a>
-  </div>
+  <div class="eyebrow">GET STARTED</div>
+  <h2>Ready to shop?</h2>
+  <p>Message us what your child needs — we'll confirm stock and pricing right away.</p>
+  <a href="https://wa.me/2348033992076" class="btn-primary" style="background:var(--turquoise);">Chat on WhatsApp</a>
 </section>
 
 <footer>
-  Mummy D Party Packs and Events — Lokogoma, Abuja
+  Mummy D Kids Essentials — Lokogoma, Abuja
 </footer>
 
 </body>
-</html>
+  </html>
+  
