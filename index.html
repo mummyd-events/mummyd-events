@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mummy D Party Packs & Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #ff6b6b;
+    --coral-deep: #e8483f;
+    --turquoise: #17b3a3;
+    --yellow: #ffc857;
+    --navy: #1d2b4f;
+    --cream: #fff8ef;
+    --line: rgba(23,179,163,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--navy); }
+  a { text-decoration: none; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+    background: rgba(255,248,239,0.85);
+    backdrop-filter: blur(10px);
+  }
+  .brand {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .brand span { color: var(--coral); }
+  .nav-cta {
+    background: var(--coral);
+    color: #fff;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--coral-deep); transform: translateY(-2px); }
+
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(100deg, rgba(29,43,79,0.88) 30%, rgba(29,43,79,0.4) 100%),
+      url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1600&q=80') center/cover;
+    color: var(--cream);
+  }
+  .hero-inner {
+    padding: 60px 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: rise 0.9s ease 0.15s forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+  .mini-badge {
+    background: rgba(255,200,87,0.15);
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    line-height: 1.08;
+    max-width: 13ch;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--yellow); font-style: normal; }
+  .hero p { max-width: 44ch; font-size: 1.05rem; color: rgba(255,248,239,0.85); margin-bottom: 30px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--coral);
+    color: #fff;
+    padding: 15px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
+  .btn-ghost {
+    border: 1px solid rgba(255,248,239,0.5);
+    color: var(--cream);
+    padding: 15px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .btn-ghost:hover { border-color: var(--yellow); transform: translateY(-3px); }
+
+  .strip {
+    background: var(--turquoise);
+    color: #fff;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  section { padding: 88px 0; }
+  .section-head { max-width: 44ch; margin-bottom: 44px; }
+  .section-head .eyebrow { color: var(--coral); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.3rem); margin-bottom: 10px; }
+  .section-head p { color: #5a6482; font-size: 1rem; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    box-shadow: 0 8px 20px rgba(29,43,79,0.1);
+  }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-item-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 16px 14px;
+    background: linear-gradient(0deg, rgba(29,43,79,0.85), transparent);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 700px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .packages { background: var(--navy); color: var(--cream); }
+  .packages .section-head h2 { color: var(--cream); }
+  .packages .section-head p { color: rgba(255,248,239,0.7); }
+  .packages .section-head .eyebrow { color: var(--yellow); }
+  .package-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .package-card {
+    background: rgba(255,248,239,0.06);
+    border: 1px solid rgba(255,200,87,0.25);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .package-card .icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .package-card h3 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 8px; }
+  .package-card p { color: rgba(255,248,239,0.75); font-size: 0.92rem; }
+
+  @media (max-width: 700px) {
+    .package-row { grid-template-columns: 1fr; }
+  }
+
+  .order { text-align: center; }
+  .order h2 { margin-bottom: 14px; }
+  .order p { color: #5a6482; max-width: 40ch; margin: 0 auto 28px; }
+
+  footer {
+    background: var(--navy);
+    color: rgba(255,248,239,0.55);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Mummy D <span>Party Packs</span></div>
+  <a href="#order" class="nav-cta">Order Now</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge-row">
+      <span class="mini-badge">One-Stop Party Shop</span>
+      <span class="mini-badge">Affordable for Every Budget</span>
+    </div>
+    <h1>Birthdays made <em>unforgettable.</em></h1>
+    <p>Party packs, souvenirs, and everything your child's celebration needs — all in one place, ready when you are.</p>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary">Plan Your Party</a>
+      <a href="#packages" class="btn-ghost">See Packages</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">🎉 Party Packs · Souvenirs · Gift Items · Birthday Essentials — All Under One Roof</div>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE VIBE</div>
+      <h2>Celebrations we love to be part of</h2>
+      <p>From first birthdays to big kid parties, every detail is handled with care.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=500&q=80" alt="Colorful kids birthday party setup">
+        <div class="gallery-item-label">Birthday Setups</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=500&q=80" alt="Party favor bags and gifts">
+        <div class="gallery-item-label">Party Packs & Favors</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=500&q=80" alt="Kids party balloons and decor">
+        <div class="gallery-item-label">Souvenirs & Gifts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages" class="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">WHAT'S INCLUDED</div>
+      <h2>Everything for the big day</h2>
+      <p>Mix and match, or let us put together the full package.</p>
+    </div>
+    <div class="package-row">
+      <div class="package-card">
+        <div class="icon">🎁</div>
+        <h3>Party Packs</h3>
+        <p>Ready-made goodie bags and souvenirs guests will love taking home.</p>
+      </div>
+      <div class="package-card">
+        <div class="icon">🎈</div>
+        <h3>Decor Items</h3>
+        <p>Balloons, banners, and table setups to bring the theme to life.</p>
+      </div>
+      <div class="package-card">
+        <div class="icon">🧸</div>
+        <h3>Gifts & Toys</h3>
+        <p>A wide selection of age-appropriate toys and gift items for every budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--coral); font-weight:700; font-size:0.8rem; letter-spacing:0.04em; margin-bottom:10px;">GET STARTED</div>
+    <h2>Ready to plan the party?</h2>
+    <p>Message us the date, age, and theme — we'll help you put together the perfect package.</p>
+    <a href="https://wa.me/2348033992076" class="btn-primary" style="background:var(--turquoise); color:#fff;">Chat on WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  Mummy D Party Packs and Events — Lokogoma, Abuja
+</footer>
+
+</body>
+</html>
